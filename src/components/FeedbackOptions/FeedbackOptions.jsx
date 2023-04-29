@@ -4,7 +4,7 @@ import { Button, ButtonList, ButtonListItem } from './FeedbackOptions.styled';
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
     <ButtonList>
-      {options.map((option, i) => (
+      {Object.keys(options).map((option, i) => (
         <ButtonListItem key={i}>
           <Button type="button" onClick={() => onLeaveFeedback(option)}>
             {option}
@@ -16,6 +16,10 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
 };
 
 FeedbackOptions.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
+  options: PropTypes.shape({
+    good: PropTypes.number.isRequired,
+    neutral: PropTypes.number.isRequired,
+    bad: PropTypes.number.isRequired,
+  }),
   onLeaveFeedback: PropTypes.func.isRequired,
 };
