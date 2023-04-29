@@ -37,7 +37,7 @@ export default function App() {
 
   return (
     <AppSection>
-      <Section title="Please leave feedback">
+      <Section title="Please  leave feedback">
         <FeedbackOptions
           options={{ good, neutral, bad }}
           onLeaveFeedback={onLeaveFeedback}
